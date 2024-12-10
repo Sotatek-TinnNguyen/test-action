@@ -15,9 +15,5 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
-      - name: Download dev branch
-        run: |
-          git config --global --add safe.directory /__w/kaia/kaia
-          git fetch origin dev:dev
       - name: Run test
         run: ${{ inputs.test_command }}
