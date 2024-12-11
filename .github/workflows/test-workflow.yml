@@ -12,7 +12,7 @@ jobs:
     with:
       test_command: |
         apt update
-        apt install python3.8 python3-venv -y
+        apt install python3.8 python3-venv tree -y
         python3.8 -m venv --without-pip venv
         ls -la 
         tree
