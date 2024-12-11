@@ -16,4 +16,5 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
       - name: Run test
+        shell: bash
         run: ${{ inputs.test_command }}

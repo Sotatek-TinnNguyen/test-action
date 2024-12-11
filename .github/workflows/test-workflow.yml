@@ -9,7 +9,6 @@ jobs:
   test-rpc:
     permissions: write-all
     uses: ./.github/workflows/test-excutor.yml
-    shell: bash
     with:
       test_command: |
         apt update
