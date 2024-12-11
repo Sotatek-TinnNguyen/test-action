@@ -1,0 +1,24 @@
+name: Reusable Basic Test Job
+
+on:
+  workflow_call:
+    inputs:
+      test_command:
+        required: true
+        type: string
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: kaiachain/build_base:go1.23-solc0.8.13-ubuntu-22.04
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+      - name: Download dev branch
+        run: |
+          git config --global --add safe.directory /__w/kaia/kaia
+          git fetch origin dev:dev
+      - name: Run test
+        shell: bash
+        run: ${{ inputs.test_command }}
