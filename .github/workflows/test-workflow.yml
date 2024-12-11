@@ -17,4 +17,4 @@ jobs:
         ls -la 
         tree
         chmod +x -R ./venv/bin/activate
-        /bin/bash source ./venv/bin/activate
+        /bin/sh source ./venv/bin/activate
