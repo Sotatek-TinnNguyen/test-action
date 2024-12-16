@@ -5,6 +5,10 @@ on:
     - cron: '0 0 * * *'  # Runs at 00:00 UTC every day
   workflow_dispatch:  # Manual trigger option
 
+env:
+  DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN }}
+  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
 jobs:
   integration:
     runs-on: ubuntu-latest
