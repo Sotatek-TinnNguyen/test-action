@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '0 0 * * *'  # Runs at 00:00 UTC every day
   workflow_dispatch:  # Manual trigger option
+  push:
+    branches:
+      - dev
 
 env:
   DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN }}
@@ -53,6 +56,7 @@ jobs:
         shell: bash
         run: |
           set -e
+          git config --global --add safe.directory /__w/test-action/test-action
           export GOPATH=/go
           git clone --depth 1 https://$TEST_TOKEN@github.com/kaiachain/kaia-core-tests.git tests/testdata
           make cover
